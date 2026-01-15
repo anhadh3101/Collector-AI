@@ -1,7 +1,7 @@
-import json, os
+import json
 
 def get_vector(text: str) -> list[float]:
-    return [0.1, 0.2, 0.3, 0.4, 0.5]
+    return [0.1, 0.2]
 
 def generate_embeddings(filename: str):
     try:
@@ -22,12 +22,10 @@ def generate_embeddings(filename: str):
         raise Exception(f"Error generating embeddings for {filename}: {e}")
 
 def main():
-    filename1 = "data_files/rag_examples.json"
-    filename2 = "data_files/profile_examples.json"
+    filename = "../data_files/examples.json"
     
     try:
-        generate_embeddings(filename1)
-        generate_embeddings(filename2)
+        generate_embeddings(filename)
     except Exception as e:
         print(f"Error in main: {e}")
     
