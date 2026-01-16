@@ -1,7 +1,16 @@
 import json
+from sentence_transformers import SentenceTransformer
+
+# =====================
+# Model (MUST match classifier)
+# =====================
+MODEL_NAME = "all-MiniLM-L6-v2"
+model = SentenceTransformer(MODEL_NAME)
 
 def get_vector(text: str) -> list[float]:
-    return [0.1, 0.2]
+    vector = model.encode(text, convert_to_numpy=True)
+    return vector.tolist()
+
 
 def generate_embeddings(filename: str):
     try:
@@ -22,7 +31,7 @@ def generate_embeddings(filename: str):
         raise Exception(f"Error generating embeddings for {filename}: {e}")
 
 def main():
-    filename = "../data_files/examples.json"
+    filename = "/Users/anhadhsran/Documents/homeify-ai-2.0/Collector-AI/data_files/examples.json"
     
     try:
         generate_embeddings(filename)
