@@ -1,4 +1,4 @@
-import os
+import json, os
 
 from langchain.agents import create_agent
 from langchain.messages import SystemMessage, HumanMessage
@@ -32,7 +32,8 @@ def main():
             "messages": [HumanMessage("What county program is for fiefigters in my county?")]
         }
     )
-    
+    with open("response.txt", "w") as f:
+        f.write(str(response))
     print(response)
     
 if __name__ == "__main__":
