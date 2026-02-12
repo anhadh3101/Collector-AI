@@ -1,6 +1,6 @@
 import chromadb
 
 client = chromadb.HttpClient(
-    host="localhost"
+    host="localhost",
     port="9911"
 )

@@ -1,0 +1,9 @@
+services:
+  agent:
+    build: .
+    depends_on:
+      chromadb:
+        condition: service_started
+    
+  chromadb:
+    image: chromadb/chroma
